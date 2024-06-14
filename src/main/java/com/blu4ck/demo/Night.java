@@ -3,6 +3,7 @@ package com.blu4ck.demo;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 
+
 @Entity
 @Table(name = "nights")
 public class Night {
@@ -27,3 +28,4 @@ public class Night {
         this.night = night;
     }
 }
+
