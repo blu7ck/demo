@@ -7,3 +7,6 @@ services:
    POSTGRES_DB: first_db
    POSTGRES_PASSWORD: 2503
    POSTGRES_USER: blu4c
+   server:
+    port: ${PORT:8080}
+
