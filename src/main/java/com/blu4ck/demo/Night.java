@@ -5,18 +5,20 @@ import jakarta.persistence.Entity;
 
 
 @Entity
-@Table(name = "nights")
 public class Night {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
     private String night;
 
-    public Integer getId() {
+    public Night(){
+
+    }
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

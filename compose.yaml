@@ -1,11 +1,9 @@
 services:
- postgres:
-  image: 'postgres:latest'
-  ports:
-   - "5432:5432"
-  environment:
-   POSTGRES_DB: first_db
-   POSTGRES_PASSWORD: 2503
-   POSTGRES_USER: blu4c
-
-
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=first_db'
+      - 'POSTGRES_PASSWORD=2503'
+      - 'POSTGRES_USER=blu4c'
+    ports:
+      - '5432:5432'

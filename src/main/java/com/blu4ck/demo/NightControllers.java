@@ -1,45 +1,48 @@
 package com.blu4ck.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.sql.DataSource;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/nights")
+@RequestMapping("/api/nights")
 public class NightControllers {
     private final NightService nightService;
-    private final DataSource dataSource;
+
 
 
     @Autowired
-    public NightControllers(NightService nightService, DataSource dataSource) {
+    public NightControllers(NightService nightService) {
         this.nightService = nightService;
-        this.dataSource = dataSource;
+
     }
-    @GetMapping("/nights/all")
+    @GetMapping
     public List<Night> getAllNights(){
-        return this.nightService.getNights();
+        return nightService.findAll();
     }
 
 
-    @PostMapping("/")
-    public ResponseEntity<Object> createNight(@RequestBody Night night){
-        return nightService.newNight(night);
+    @ResponseStatus(HttpStatus.CREATED) // 201
+    @PostMapping
+    public Night create(@RequestBody Night night) {
+        return nightService.save(night);
     }
-    @PutMapping("/{id}")
-    public ResponseEntity<Object> updateNightById(@PathVariable Integer id, @RequestBody Night updateNight){
-        return this.nightService.updateNight(id, updateNight);
+    @PutMapping
+    public Night update(@RequestBody Night night) {
+        return nightService.save(night);
     }
+    @ResponseStatus(HttpStatus.NO_CONTENT) // 204
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteightById(@PathVariable Integer id){
-        return this.nightService.deleteNight(id);
+    public void deleteById(@PathVariable Long id) {
+        nightService.deleteById(id);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getNightById(@PathVariable Integer id){
-        return this.nightService.getNightById(id);
+    public Optional<Night> findById(@PathVariable Long id) {
+        return nightService.findById(id);
     }
 
 }

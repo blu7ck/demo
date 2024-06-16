@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/first_db
+    username: blu4c
+    password: 2503
+
+  sql:
+    init:
+      mode: always
+
