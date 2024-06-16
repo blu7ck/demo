@@ -1,8 +1,8 @@
 services:
   postgres:
-    image: 'postgres:latest'
+    image: 'blu4ck:latest'
     environment:
-      - 'POSTGRES_DB=first_db'
+      - 'POSTGRES_DB=postgres'
       - 'POSTGRES_PASSWORD=2503'
       - 'POSTGRES_USER=blu4c'
     ports:
