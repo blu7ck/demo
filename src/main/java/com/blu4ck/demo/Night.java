@@ -10,10 +10,16 @@ public class Night {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String night;
+    private String happens;
 
     public Night(){
 
     }
+
+    public String getHappens() {return happens;}
+
+    public void setHappens(String happens) {this.happens = happens;}
+
     public Long getId() {
         return id;
     }
