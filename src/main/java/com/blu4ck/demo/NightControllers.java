@@ -38,6 +38,7 @@ public class NightControllers {
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Long id) {
         nightService.deleteById(id);
+
     }
     @GetMapping("/{id}")
     public Optional<Night> findById(@PathVariable Long id) {
